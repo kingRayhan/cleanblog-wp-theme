@@ -24,7 +24,6 @@ get_header(); ?>
 
 			get_template_part( 'template-parts/content', 'page' );
 
-			the_post_navigation();
 
 			echo "<br><br><br><br>";
 
