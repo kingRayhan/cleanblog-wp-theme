@@ -6,4 +6,4 @@ A very simple wordpress theme just only for blogging
 
 
 
-[![blue-color-free-Download-Button.png](https://bitbucket.org/repo/68MA97/images/3415470568-blue-color-free-Download-Button.png)](Link URL)
+[![blue-color-free-Download-Button.png](https://bitbucket.org/repo/68MA97/images/3415470568-blue-color-free-Download-Button.png)](http://rayhan.info)
