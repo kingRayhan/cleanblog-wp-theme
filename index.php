@@ -34,6 +34,7 @@ get_header(); ?>
 			?>
                 <div class="post-preview">
                     <a href="<?php the_permalink(); ?>">
+                        <?php the_post_thumbnail('post_fet'); ?>
                         <h2 class="post-title">
                             <?php the_title(); ?>
                         </h2>
@@ -42,6 +43,10 @@ get_header(); ?>
                     <p><?php the_excerpt(); ?></p>
                 </div>
                 <hr>
+                <br>
+                <br>
+                <br>
+                <br>
 			<?php
 
 			endwhile;

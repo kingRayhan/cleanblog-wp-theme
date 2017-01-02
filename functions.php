@@ -42,11 +42,14 @@ function cleanblog_setup() {
 	 */
 	add_theme_support( 'post-thumbnails' );
 
+	/**
+	 * Image size
+	 */
+	add_image_size('header_banner' , 1900 , 872);
+	add_image_size('post_fet' , 850 , 450);
+
 	// This theme uses wp_nav_menu() in one location.
-	register_nav_menus( array(
-		'fghgf' => esc_html__( 'Primary', 'cleanblog' ),
-	) );
-	register_nav_menu('primaryMenu' , 'Primary Menu');
+	register_nav_menu('primaryMenu' , __('Primary Menu','cleanblog'));
 
 	/*
 	 * Switch default core markup for search form, comment form, and comments

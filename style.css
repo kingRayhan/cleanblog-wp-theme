@@ -417,7 +417,7 @@ table {
 /*--------------------------------------------------------------
 # Forms
 --------------------------------------------------------------*/
-button,
+/* button,
 input[type="button"],
 input[type="reset"],
 input[type="submit"] {
@@ -495,17 +495,15 @@ textarea:focus {
 	color: #111;
 }
 
+
+ */
 textarea {
 	width: 100%;
 }
-
-
 /**
  * Comment box submit button
  */
-.comments-area input#submit {
-    font-size: 18px;
-}
+
 /*--------------------------------------------------------------
 # Navigation
 --------------------------------------------------------------*/
