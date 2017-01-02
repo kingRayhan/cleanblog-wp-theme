@@ -19,22 +19,22 @@ get_header(); ?>
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-		<?php
-		if ( have_posts() ) :
+        <?php
+        if ( have_posts() ) :
 
 
-			/* Start the Loop */
-			while ( have_posts() ) : the_post();
+            /* Start the Loop */
+            while ( have_posts() ) : the_post();
 
-				/*
-				 * Include the Post-Format-specific template for the content.
-				 * If you want to override this in a child theme, then include a file
-				 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-				 */
-			?>
+                /*
+                 * Include the Post-Format-specific template for the content.
+                 * If you want to override this in a child theme, then include a file
+                 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
+                 */
+            ?>
                 <div class="post-preview">
                     <a href="<?php the_permalink(); ?>">
-                        <?php the_post_thumbnail('post_fet'); ?>
+                        <img src="<?php the_post_thumbnail_url('post_fet'); ?>" style="width: 100%">
                         <h2 class="post-title">
                             <?php the_title(); ?>
                         </h2>
@@ -47,17 +47,17 @@ get_header(); ?>
                 <br>
                 <br>
                 <br>
-			<?php
+            <?php
 
-			endwhile;
+            endwhile;
 
-			the_posts_navigation();
+            the_posts_navigation();
 
-		else :
+        else :
 
-			get_template_part( 'template-parts/content', 'none' );
+            get_template_part( 'template-parts/content', 'none' );
 
-		endif; ?>
+        endif; ?>
 
             </div>
         </div>
