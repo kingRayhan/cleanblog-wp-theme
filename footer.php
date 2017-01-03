@@ -16,18 +16,14 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                    <?php 
-
+                    <?php
                         if(get_theme_mod('show_footer_social_icon')) {
                             cleanblog_social();
                         } 
                     ?>
 
-
-
-
                     <?php if(get_theme_mod('show_copyright_text')): ?>
-                    <p class="copyright text-muted"><?php echo get_theme_mod('footer_copyright'); ?></p>
+                        <p class="copyright text-muted"><?php echo get_theme_mod('footer_copyright'); ?></p>
                     <?php endif; ?>
                 </div>
             </div>

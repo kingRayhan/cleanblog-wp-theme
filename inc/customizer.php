@@ -63,7 +63,7 @@ function cleanblog_customize_register( $wp_customize ) {
 
 
 	$wp_customize->add_setting('show_copyright_text',array(
-		'default' => 'Copyright &copy; Your Website '.date('Y'),
+		'default' => true,
 		'transport' => 'refresh'
 	));
 	$wp_customize->add_control('show_copyright_text',array(
@@ -72,6 +72,16 @@ function cleanblog_customize_register( $wp_customize ) {
 		'label' => __('Show Copyright text','cleanblog')
 	));
 
+
+	$wp_customize->add_setting('footer_copyright',array(
+		"default" => "CleanBlog Wordpress theme by <a href='//rayhan.info' target='_blank'>@KingRayhan</a>",
+		"transport" => "refresh"
+	));
+	$wp_customize->add_control('footer_copyright',array(
+		'label' => __('Footer copyright text','cleanblog'),
+		'type'  => 'textarea',
+		'section' => 'footer_section'
+	));
 
 
 
@@ -84,6 +94,9 @@ function cleanblog_customize_register( $wp_customize ) {
 		'type' => 'checkbox',
 		'label' => __('Show social icons','cleanblog')
 	));
+
+
+
 
 
 	$wp_customize->add_setting('social_icons',array(
