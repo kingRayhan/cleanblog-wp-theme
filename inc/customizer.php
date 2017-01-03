@@ -12,6 +12,50 @@
  */
 function cleanblog_customize_register( $wp_customize ) {
 
+
+
+	/* Link Color */
+	$wp_customize->add_setting(
+		'cleanblog_link_color',
+		array(
+			'default'     		 => '#777',
+			'transport'   		 => 'refresh'
+		)
+	);
+	$wp_customize->add_control(
+		new WP_Customize_Color_Control(
+			$wp_customize,
+			'link_color',
+			array(
+			    'label'      => 'Link Color',
+			    'section'    => 'colors',
+			    'settings'   => 'cleanblog_link_color'
+			)
+		)
+	);
+
+	/* Link Color */
+	$wp_customize->add_setting(
+		'cleanblog_link_hover_color',
+		array(
+			'default'     		 => '#1e73be',
+			'transport'   		 => 'refresh'
+		)
+	);
+	$wp_customize->add_control(
+		new WP_Customize_Color_Control(
+			$wp_customize,
+			'link_hover_color',
+			array(
+			    'label'      => 'Link Hover Color',
+			    'section'    => 'colors',
+			    'settings'   => 'cleanblog_link_hover_color'
+			)
+		)
+	);
+
+
+
 	$wp_customize->add_section('footer_section',array(
 		'title' => 'Footer'
 	));
@@ -19,7 +63,7 @@ function cleanblog_customize_register( $wp_customize ) {
 
 
 	$wp_customize->add_setting('show_copyright_text',array(
-		'default' => 'Copyright &copy; Your Website 2016',
+		'default' => 'Copyright &copy; Your Website '.date('Y'),
 		'transport' => 'refresh'
 	));
 	$wp_customize->add_control('show_copyright_text',array(
@@ -29,17 +73,6 @@ function cleanblog_customize_register( $wp_customize ) {
 	));
 
 
-
-
-	$wp_customize->add_setting('footer_copyright',array(
-		'default' => 'Copyright &copy; Your Website 2016',
-		'transport' => 'refresh'
-	));
-	$wp_customize->add_control('footer_copyright',array(
-		'section' => 'footer_section',
-		'type' => 'textarea',
-		'label' => __('Copyright text','cleanblog')
-	));
 
 
 	$wp_customize->add_setting('show_footer_social_icon',array(
@@ -64,78 +97,186 @@ function cleanblog_customize_register( $wp_customize ) {
 	));
 
 
-	/**
-	 * Facebook
-	 */
-	$wp_customize->add_setting('social_icon_Facebook',array(
-		'default' => '#',
-		'transport' => 'refresh'
-	));
-	$wp_customize->add_control('social_icon_Facebook',array(
-		'label' => __('Facebook','cleanblog'),
-		'type' => 'text',
-		'section' => 'footer_section'
-	));
+	/*-----------------------------------------------------------*
+	 * Defining our own 'Social Links' section
+	 *-----------------------------------------------------------*/
 
-	/**
-	 * Twitter
-	 */
-
-	$wp_customize->add_setting('social_icon_Twitter',array(
-		'default' => '#',
-		'transport' => 'refresh'
-	));
-	$wp_customize->add_control('social_icon_Twitter',array(
-		'label' => __('Twitter','cleanblog'),
-		'type' => 'text',
-		'section' => 'footer_section'
-	));
-
-
-	/**
-	 * GooglePlus
-	 */
-	$wp_customize->add_setting('social_icon_GooglePlus',array(
-		'default' => '#',
-		'transport' => 'refresh'
-	));
-	$wp_customize->add_control('social_icon_GooglePlus',array(
-		'label' => __('GooglePlus','cleanblog'),
-		'type' => 'text',
-		'section' => 'footer_section'
-	));
-
-
-	/**
-	 * YouTube
-	 */
-	$wp_customize->add_setting('social_icon_YouTube',array(
-		'default' => '#',
-		'transport' => 'refresh'
-	));
-	$wp_customize->add_control('social_icon_YouTube',array(
-		'label' => __('YouTube','cleanblog'),
-		'type' => 'text',
-		'section' => 'footer_section'
-	));
-
-
-	/**
-	 * Github
-	 */
-	$wp_customize->add_setting('social_icon_Github',array(
-		'default' => '#',
-		'transport' => 'refresh'
-	));
-	$wp_customize->add_control('social_icon_Github',array(
-		'label' => __('Github','cleanblog'),
-		'type' => 'text',
-		'section' => 'footer_section'
-	));
-
-
-
-
+	/* Twitter URL */
+	$wp_customize->add_setting(
+		'cleanblog_social_twitter',
+		array(
+			'default'            => '',
+			'transport'          => 'refresh'
+		)
+	);
+	$wp_customize->add_control(
+		'cleanblog_social_twitter',
+		array(
+			'section'  => 'footer_section',
+			'label'    => 'Twitter',
+			'type'     => 'text'
+		)
+	);
+	/* Facebook URL */
+	$wp_customize->add_setting(
+		'cleanblog_social_facebook',
+		array(
+			'default'            => '',
+			'transport'          => 'refresh'
+		)
+	);
+	$wp_customize->add_control(
+		'cleanblog_social_facebook',
+		array(
+			'section'  => 'footer_section',
+			'label'    => 'Facebook',
+			'type'     => 'text'
+		)
+	);
+	/* Google URL */
+	$wp_customize->add_setting(
+		'cleanblog_social_google',
+		array(
+			'default'            => '',
+			'transport'          => 'refresh'
+		)
+	);
+	$wp_customize->add_control(
+		'cleanblog_social_google',
+		array(
+			'section'  => 'footer_section',
+			'label'    => 'Google+',
+			'type'     => 'text'
+		)
+	);
+	/* Pinterest URL */
+	$wp_customize->add_setting(
+		'cleanblog_social_pinterest',
+		array(
+			'default'            => '',
+			'transport'          => 'refresh'
+		)
+	);
+	$wp_customize->add_control(
+		'cleanblog_social_pinterest',
+		array(
+			'section'  => 'footer_section',
+			'label'    => 'Pinterest',
+			'type'     => 'text'
+		)
+	);
+	/* Linkedin URL */
+	$wp_customize->add_setting(
+		'cleanblog_social_linkedin',
+		array(
+			'default'            => '',
+			'transport'          => 'refresh'
+		)
+	);
+	$wp_customize->add_control(
+		'cleanblog_social_linkedin',
+		array(
+			'section'  => 'footer_section',
+			'label'    => 'Linkedin',
+			'type'     => 'text'
+		)
+	);
+	/* Github URL */
+	$wp_customize->add_setting(
+		'cleanblog_social_github',
+		array(
+			'default'            => '',
+			'transport'          => 'refresh'
+		)
+	);
+	$wp_customize->add_control(
+		'cleanblog_social_github',
+		array(
+			'section'  => 'footer_section',
+			'label'    => 'Github',
+			'type'     => 'text'
+		)
+	);
+	/* Instagram URL */
+	$wp_customize->add_setting(
+		'cleanblog_social_instagram',
+		array(
+			'default'            => '',
+			'transport'          => 'refresh'
+		)
+	);
+	$wp_customize->add_control(
+		'cleanblog_social_instagram',
+		array(
+			'section'  => 'footer_section',
+			'label'    => 'Instagram',
+			'type'     => 'text'
+		)
+	);
+	/* Medium URL */
+	$wp_customize->add_setting(
+		'cleanblog_social_medium',
+		array(
+			'default'            => '',
+			'transport'          => 'refresh'
+		)
+	);
+	$wp_customize->add_control(
+		'cleanblog_social_medium',
+		array(
+			'section'  => 'footer_section',
+			'label'    => 'Medium',
+			'type'     => 'text'
+		)
+	);
+	/* Vine URL */
+	$wp_customize->add_setting(
+		'cleanblog_social_vine',
+		array(
+			'default'            => '',
+			'transport'          => 'refresh'
+		)
+	);
+	$wp_customize->add_control(
+		'cleanblog_social_vine',
+		array(
+			'section'  => 'footer_section',
+			'label'    => 'Vine',
+			'type'     => 'text'
+		)
+	);
+	/* Tumblr URL */
+	$wp_customize->add_setting(
+		'cleanblog_social_tumblr',
+		array(
+			'default'            => '',
+			'transport'          => 'refresh'
+		)
+	);
+	$wp_customize->add_control(
+		'cleanblog_social_tumblr',
+		array(
+			'section'  => 'footer_section',
+			'label'    => 'Tumblr',
+			'type'     => 'text'
+		)
+	);
+	/* YouTube URL */
+	$wp_customize->add_setting(
+		'cleanblog_social_youtube',
+		array(
+			'default'            => '',
+			'transport'          => 'refresh'
+		)
+	);
+	$wp_customize->add_control(
+		'cleanblog_social_youtube',
+		array(
+			'section'  => 'footer_section',
+			'label'    => 'YouTube',
+			'type'     => 'text'
+		)
+	);
 
 
 }

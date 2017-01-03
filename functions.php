@@ -108,6 +108,25 @@ function cleanblog_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'cleanblog_scripts' );
 
+
+
+	function cleanblog_inline_style(){ ?>
+	
+	<style type="text/css">
+		a{
+			color: <?php echo get_theme_mod('cleanblog_link_color'); ?>;
+		}
+		a:hover{
+			color: <?php echo get_theme_mod('cleanblog_link_hover_color'); ?>;
+		}
+	</style>
+
+	<?php }
+	add_action('wp_head','cleanblog_inline_style');
+
+
+
+
 /**
  * Implement the Custom Header feature.
  */
