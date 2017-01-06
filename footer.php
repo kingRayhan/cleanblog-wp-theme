@@ -8,22 +8,21 @@
  *
  * @package CleanBlog
  */
-
 ?>
-
     <!-- Footer -->
     <footer>
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="footer-social-icons">
+                      <?php cleanblog_social(); ?>
+                    </div>
                     <?php
-                        if(get_theme_mod('show_footer_social_icon')) {
-                            cleanblog_social();
-                        } 
-                    ?>
+                      $txt = "CleanBlog Wordpress theme by <a href='//rayhan.info' target='_blank'>@KingRayhan</a>";
+                      $copyright_txt = ( false == get_theme_mod('footer_copyright') ) ? $txt : get_theme_mod('footer_copyright');
 
-                    <?php if(get_theme_mod('show_copyright_text')): ?>
-                        <p class="copyright text-muted"><?php echo get_theme_mod('footer_copyright'); ?></p>
+                    if(count($copyright_txt)): ?>
+                        <p class="copyright text-muted"><?php echo $copyright_txt; ?></p>
                     <?php endif; ?>
                 </div>
             </div>
