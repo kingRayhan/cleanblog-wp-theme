@@ -34,10 +34,10 @@ get_header(); ?>
             ?>
                 <div class="post-preview">
                     <a href="<?php the_permalink(); ?>">
-                        <?php  
+                        <?php
                         	if (has_post_thumbnail()) {
                         		?>
-                        		<img src="<?php the_post_thumbnail_url('post_fet'); ?>" style="width: 100%">
+                        		<img src="<?php the_post_thumbnail_url('post_fet'); ?>" class="post-thumbnail post-thumb-id-<?php echo $post->ID; ?>">
                         		<?php
                         	}
                         ?>
